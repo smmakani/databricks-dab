@@ -68,3 +68,15 @@ with this project. It's also possible to interact with it directly using the CLI
    ```
    $ uv run pytest
    ```
+
+## GitHub Actions
+
+The workflow in `.github/workflows/main.yml` validates the `dev` bundle on pull
+requests to `main` and deploys it after pushes to `main`. Configure these
+repository Actions secrets before enabling the workflow:
+
+* `DATABRICKS_HOST`: the URL of the Databricks workspace.
+* `DATABRICKS_TOKEN`: a token authorized to validate and deploy the bundle.
+
+The workflow deploys only the `dev` target; production deployment remains a
+deliberate manual operation.
